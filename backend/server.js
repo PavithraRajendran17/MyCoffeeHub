@@ -53,7 +53,7 @@ app.get('/api/recipe/random', (req, res) => {
 });
 
 // 4. Fallback Route: Website-ku poga podhu index.html-ah kaatta
-app.get('/:any*', (req, res) => {
+app.use((req, res) => {
     res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
