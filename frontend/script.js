@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", fetchRecipes);
 
 async function fetchRecipes() {
     try {
-        // Backend connection check
-        const response = await fetch('http://localhost:5000/api/recipes');
+        // Change: localhost-ah remove pannittu verum '/api/recipes' kudunga
+        // Idhu automatic-ah unga Render URL-ah eduthukkum
+        const response = await fetch('/api/recipes'); 
+        
         if (!response.ok) throw new Error('API connecting error');
         
         allRecipes = await response.json();
