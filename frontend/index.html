@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCoffeeHub | Premium Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-coffee"></i> MyCoffeeHub</h2>
+                <div class="search-wrapper">
+                    <input type="text" id="searchBar" placeholder="Search 100+ coffee..." onkeyup="filterMenu()">
+                </div>
+            </div>
+            <ul id="coffee-list">
+                </ul>
+        </aside>
+
+        <main class="main-content">
+            <div id="placeholder-text">
+                <i class="fas fa-mug-hot" style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;"></i>
+                <h2>Welcome to MyCoffeeHub</h2>
+                <p>Select a coffee from the menu to see the magic!</p>
+            </div>
+
+            <div id="recipe-card" class="hidden">
+                <div class="recipe-header">
+                    <h1 id="coffee-name"></h1>
+                    <span id="coffee-type" class="badge">Classic</span>
+                </div>
+                
+                <div class="recipe-grid">
+                    <div class="image-section">
+                        <img id="coffee-image" src="" alt="Coffee Image" onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500'">
+                    </div>
+
+                    <div class="info-section">
+                        <h3><i class="fas fa-list-ul"></i> Ingredients</h3>
+                        <p id="ingredients"></p>
+                    </div>
+                </div>
+
+                <div class="steps-section">
+                    <h3><i class="fas fa-utensils"></i> Brewing Steps</h3>
+                    <div id="steps"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
