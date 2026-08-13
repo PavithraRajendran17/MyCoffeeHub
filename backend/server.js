@@ -43,11 +43,6 @@ db.connect((err) => {
             return;
         }
         console.log('Recipes table checked/created successfully! 📋');
-
-        db.query('SELECT COUNT(*) as count FROM recipes', (err, results) => {
-            if (err) throw err;
-            
-            if (results[0].count === 0) {
                 const insertQuery = `
                    INSERT INTO recipes (name, ingredients, steps, image_url, type) VALUES 
 ('South Indian Filter Coffee', 'Coffee powder, Milk, Sugar, Water', '1. Add 3 tsp coffee powder to filter. 2. Pour boiling water and brew 15m. 3. Collect thick decoction. 4. Boil full-fat milk. 5. Mix decoction, milk, and sugar. 6. Froth with Davara.', 'https://images.unsplash.com/photo-1594631252845-29fc4586c552', 'Hot'),
@@ -152,16 +147,14 @@ db.connect((err) => {
 ('Caffè Macchiato Caldo', 'Espresso, Hot milk foam', '1. Brew a single espresso shot. 2. Steam milk for very dry foam. 3. Use a spoon to lift foam. 4. Place 1-2 spoons of foam on. 5. Serve in a small warm cup. 6. Strong with a touch of milk.', 'https://images.unsplash.com/photo-1485808191679-5f86510681a2', 'Hot');
                 `;
                 
-                db.query(insertQuery, (err, result) => {
-                    if (err) throw err;
-                    console.log('Default coffee recipes added successfully! ☕✨');
-                });
+             db.query(insertQuery, (err, result) => {
+            if (err) {
+                console.log('Note: Recipes might already exist in database.');
             } else {
-                console.log('Recipes already exist in database. Skipping insert.');
+                console.log('All coffee recipes added successfully! ☕✨');
             }
         });
     });
-});
 
 // 2. Public Folder Connect Pannuthu (Fixed for current structure)
 app.use(express.static(path.join(__dirname, 'public')));
