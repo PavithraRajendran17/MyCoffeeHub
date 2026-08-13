@@ -9,18 +9,21 @@ app.use(express.json());
 
 // 1. MySQL Connection (Idhu correct-ah irukku!)
 const db = mysql.createConnection({
-    host: 'mysql-2193fcb4-pavithrapanimalar30-96c9.a.aivencloud.com',
-    port: 14781,
-    user: 'avnadmin', 
-    password: 'AVNS_ityXQbHyo1sN5vb1xFh', 
-    database: 'defaultdb',
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     ssl: { rejectUnauthorized: false }
 });
 
+// 3. Database connection error check (Improved)
 db.connect((err) => {
     if (err) {
-        console.error('Database connection failed: ' + err.stack);
-        return;
+        console.error('Database connection failed: ' + err.message);
+        // Error iruntha server start aagum but queries work aagathu. 
+        // Adhukku badhula server-ai stop pannidalam.
+        process.exit(1); 
     }
     console.log('Connected to MySQL Database! ✅');
 });
