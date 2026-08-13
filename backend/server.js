@@ -145,15 +145,15 @@ db.connect((err) => {
 ('Cardamom Latte', 'Espresso, Cardamom, Milk', '1. Crush 2 cardamom pods in cup. 2. Brew espresso over the spice. 3. Steam milk until creamy. 4. Pour milk and strain pods. 5. Add a hint of honey. 6. Fragrant Middle Eastern style.', 'https://images.unsplash.com/photo-1550461716-dbf266b2a8a7', 'Hot'),
 ('Espresso on Ice', 'Double Espresso, Large Ice', '1. Fill a glass with large ice. 2. Brew a double espresso shot. 3. Pour espresso over ice fast. 4. Shake or stir to chill. 5. Drink immediately for bold taste. 6. Pure and simple cold caffeine.', 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04', 'Cold'),
 ('Caffè Macchiato Caldo', 'Espresso, Hot milk foam', '1. Brew a single espresso shot. 2. Steam milk for very dry foam. 3. Use a spoon to lift foam. 4. Place 1-2 spoons of foam on. 5. Serve in a small warm cup. 6. Strong with a touch of milk.', 'https://images.unsplash.com/photo-1485808191679-5f86510681a2', 'Hot');
-                `;
-                
-             db.query(insertQuery, (err, result) => {
+`;
+db.query(insertQuery, (err, result) => {
             if (err) {
                 console.log('Note: Recipes might already exist in database.');
             } else {
                 console.log('All coffee recipes added successfully! ☕✨');
             }
         });
+    });
     });
 
 // 2. Public Folder Connect Pannuthu (Fixed for current structure)
